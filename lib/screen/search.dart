@@ -5,6 +5,6 @@ class Search extends StatelessWidget {
   @override
   SafeArea build(BuildContext context) {
     return  SafeArea(
-      child: Text('searchhh', style: TextStyle(fontSize: 50), selectionColor: Colors.black, ));
+      child: Text('search', style: TextStyle(fontSize: 50), selectionColor: Colors.black, ));
   }
 }
