@@ -28,19 +28,17 @@ class Home extends StatelessWidget {
 
   Widget createMusic(Music music) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          
-          SizedBox
-          (
-            height:200 ,
+          SizedBox(
+            height: 200,
             width: 200,
-            child: Image.network(
-              music.iMage,
-             fit: BoxFit.cover)),
-          Text(music.nAme,style: TextStyle(color: Colors.white),),
-          Text(music.dEsc,style: TextStyle(color: Colors.white)),
+            child: Image.network(music.iMage, fit: BoxFit.cover),
+          ),
+          Text(music.nAme, style: TextStyle(color: Colors.white)),
+          Text(music.dEsc, style: TextStyle(color: Colors.white)),
         ],
       ),
     );
@@ -48,22 +46,33 @@ class Home extends StatelessWidget {
 
   Widget createMusicList(String label) {
     List<Music> musicList = MusicOperations.getMusic();
-   return SizedBox(
-    height: 300,
-     child: ListView.builder(
-      //padding: EdgeInsets.all(5),
-      scrollDirection: Axis.horizontal,
-        itemBuilder: (ctx, index) {
-          return createMusic(musicList[index]);
-        },
-        itemCount: musicList.length,
+    return Padding(
+      padding: EdgeInsets.only(left: 10) ,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: TextStyle(color: Colors.white,fontSize:20,fontWeight: FontWeight.bold)),
+      
+          SizedBox(height: 10),
+          SizedBox(
+            height: 300,
+            child: ListView.builder(
+              //padding: EdgeInsets.all(5),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (ctx, index) {
+                return createMusic(musicList[index]);
+              },
+              itemCount: musicList.length,
+            ),
+          ),
+        ],
       ),
-   );
+    );
   }
 
   Widget createGrid() {
     return SizedBox(
-      height: 300,
+      height: 280,
       child: GridView.count(
         crossAxisCount: 2,
         childAspectRatio: 5 / 2,
@@ -89,33 +98,32 @@ class Home extends StatelessWidget {
   }
 
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SafeArea(
-          child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.black, const Color.fromARGB(255, 16, 20, 16)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-             stops: [0.1, 0.3])),
-        child: Column(
-          children: [
-            createAppBar('Good morning'),
-            SizedBox(
-              height: 5,
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [const Color.fromARGB(255, 104, 59, 59), const Color.fromARGB(255, 16, 20, 16)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: [0.1, 0.3],
             ),
-            createGrid(),
-            createMusicList('Made for you'),
-            createMusicList('Popular PlayList')
-          ],
-        ),
           ),
-     ) );
-       // child: Column(children: [createAppBar('Good Morning'), createGrid()]),
+          child: Column(
+            children: [
+              createAppBar('Good morning'),
+              SizedBox(height: 5),
+              createGrid(),
+              createMusicList('Made for you'),
+              createMusicList('Popular PlayList'),
+            ],
+          ),
+        ),
+      ),
+    );
+    // child: Column(children: [createAppBar('Good Morning'), createGrid()]),
     //  ),
-  //  );
+    //  );
   }
 }
-
-

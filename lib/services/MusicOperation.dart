@@ -5,13 +5,13 @@ class MusicOperations {
   static List<Music> getMusic() {
     return <Music>[
       Music(
-        'tToofan',
-        'https://th.bing.com/th/id/OIP.heMyLMtgdcxuZQRiAQ3N9AAAAA?w=64&h=64&c=7&r=0&o=5&pid=1.7',
+        'Toofan',
+        'https://i.scdn.co/image/ab67616d0000b273aad3f4b601ae8763b3fc4e88',
         'most liseten',
       ),
-      Music('Qaafarina', 'https://th.bing.com/th/id/OIP.u8gGUW4jDelGF5kv8nmAwwAAAA?w=140&h=150&c=7&r=0&o=7&pid=1.7&rm=3', 'Liked'
+      Music('Qaafarina', 'https://i.scdn.co/image/ab67616d0000b273c65eb44f9039e006247ef8f7', 'Liked'
       ),
-      Music('Glory', 'https://th.bing.com/th/id/OIP.uoo4jiSqC9ugCnUqG2BGBAAAAA?w=128&h=128&c=7&r=0&o=7&pid=1.7&rm=3', 'Legend'),
+      Music('Glory', 'https://i.scdn.co/image/ab67616d0000b273aad3f4b601ae8763b3fc4e88', 'Legend'),
     ];
   }
 }
